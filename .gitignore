@@ -1,0 +1,84 @@
+# ========================
+# Environment & Secrets
+# ========================
+.env
+.env.*
+!.env.example
+*.key
+auth.json
+
+# ========================
+# PHP / Composer
+# ========================
+/vendor/
+composer.phar
+.phpactor.json
+_ide_helper.php
+_ide_helper_models.php
+.phpstorm.meta.php
+
+# PHPUnit
+.phpunit.result.cache
+.phpunit.cache/
+/phpunit.xml
+
+# ========================
+# Node / JS / React
+# ========================
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.yarn/
+.pnp.*
+
+# Build output
+/public/build/
+/public/hot/
+/dist/
+/build/
+
+# ========================
+# Logs & Runtime
+# ========================
+*.log
+/storage/*.key
+/storage/pail/
+/storage/logs/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+
+# ========================
+# Database
+# ========================
+*.sqlite
+*.sqlite3
+*.db
+*.sql.gz
+*.dump
+/database/database.sqlite
+
+# ========================
+# OS & Editor artifacts
+# ========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+/.vscode/
+!/.vscode/extensions.json
+/.idea/
+/.nova/
+/.zed/
+/.cursor/
+/.codex/
+
+# ========================
+# Laravel-specific
+# ========================
+/public/storage
+Homestead.json
+Homestead.yaml
+/auth.json
