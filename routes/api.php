@@ -8,4 +8,5 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/trips', [TripController::class,'index']);
+// Route::get('/trips', [TripController::class,'index']);
+Route::apiResource('trips',TripController::class);
