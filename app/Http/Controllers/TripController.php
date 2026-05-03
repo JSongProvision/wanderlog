@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Trip;
+use App\Http\Requests\StoreTripRequest;
 
 class TripController extends Controller
 {
@@ -12,9 +13,9 @@ class TripController extends Controller
         return Trip::orderBy('start_date')->get();
     }
 
-    public function store(Request $request)
+    public function store(StoreTripRequest $request)
     {
-        $trip = Trip::create($request->all());
+        $trip = Trip::create($request->validated());
         return $trip;
     }
 

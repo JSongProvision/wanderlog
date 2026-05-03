@@ -18,4 +18,9 @@ class Trip extends Model
         'start_date' => 'date',
         'end_date'   => 'date',
     ];
+
+    public function days()
+    {
+        return $this->hasMany(Day::class)->orderBy('date');
+    }
 }
