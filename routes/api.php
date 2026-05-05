@@ -9,4 +9,20 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 // Route::get('/trips', [TripController::class,'index']);
-Route::apiResource('trips',TripController::class);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('trips',TripController::class);
+});
+
+Route::post('/login', function (Request $request) {
+    $credentials = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
+
+    if (!Auth::attempt($credentials)) {
+        return response()->json(['message'=>'Invalid credentials'], 422);
+    }
+
+    $user = $request->user();
+    return ['token' => $user->createToken('app')->plainTextToken];
+});

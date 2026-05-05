@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Trip;
 use App\Http\Requests\StoreTripRequest;
+use App\Http\Resources\TripResource;
 
 class TripController extends Controller
 {
     public function index()
     {
-        return Trip::orderBy('start_date')->get();
+        return TripResource::collection(Trip::with('days.activities')->orderBy('start_date')->get()
+        );
     }
 
     public function store(StoreTripRequest $request)
